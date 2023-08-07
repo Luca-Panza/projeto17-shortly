@@ -1,5 +1,4 @@
 import { nanoid } from "nanoid";
-import { db } from "../database/database.connection.js";
 import {
   storeUrl,
   findUrl,
@@ -45,7 +44,7 @@ export async function redirectUrl(req, res) {
 
   try {
     const result = await getUrlByShortUrl(shortUrl);
-    if (result.rowCount === 0) return res.status(404).send("Url not found");
+    if (result.rowCount === 0) return res.status(404).send({ message: "Url not found" });
 
     const { id, url, visitCount } = result.rows[0];
 
