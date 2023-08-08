@@ -13,7 +13,7 @@ export async function getUrlByIdDB(id) {
   return db.query(`SELECT id, url, "shortUrl" FROM urls WHERE id = $1`, [id]);
 }
 
-export async function getUrlByShortUrl(shortUrl) {
+export async function getUrlByNameDB(shortUrl) {
   return db.query(`SELECT url FROM urls WHERE "shortUrl"=$1;`, [shortUrl]);
 }
 
